@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>မြန်မာ့ရိုးရာဗေဒင်အဟော</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>မြန်မာ့ရိုးရာ ဗေဒင်အဟော</h1>
+        <p>သင်ရဲ့ အချက်အလက်များကို ဖြည့်သွင်းပြီး ကံကြမ္မာဟောစာတမ်းကို ကြည့်ရှုနိုင်ပါတယ်။</p>
+
+        <form id="horoscope-form">
+            <label for="name">အမည်:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="birth-date">မွေးနေ့ (ဥပမာ: ၁၉၉၀-၀၁-၀၁):</label>
+            <input type="date" id="birth-date" name="birth-date" required>
+
+            <button type="submit">ဗေဒင်ဟောပါ</button>
+        </form>
+
+        <div id="result-container" class="hidden">
+            <h2>ကံကြမ္မာဟောစာတမ်း</h2>
+            <div id="horoscope-text"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
