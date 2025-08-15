@@ -8,11 +8,12 @@ const app = express();
 const port = 3000;
 
 // Middleware
-app.use(cors()); // Frontend (HTML/JS) ကနေခေါ်ဖို့အတွက်
-app.use(express.json()); // JSON data ကိုလက်ခံဖို့အတွက်
+app.use(cors());
+app.use(express.json());
 
 // Google Gemini API Configuration
-const genAI = new GoogleGenerativeAI(process.env.AIzaSyA3wcMBc76oKYQ4AUhws2HxIm-aRh11ONQ);
+// API Key ကို .env file ထဲကနေ လုံခြုံစွာခေါ်ယူခြင်း
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 app.post('/api/get-horoscope', async (req, res) => {
     try {
@@ -34,6 +35,11 @@ app.post('/api/get-horoscope', async (req, res) => {
         console.error('Error calling Gemini API:', error);
         res.status(500).json({ error: 'Failed to generate horoscope.' });
     }
+});
+
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+});
 });
 
 app.listen(port, () => {
